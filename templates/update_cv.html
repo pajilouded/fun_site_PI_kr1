@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Создание резюме{% endblock %}
+
+{% block body %}
+    <div class="container create_vacancy_cv">
+        <h1 class="">Редактирование резюме</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Ваша специальность</label>
+                <input class="form-control" name="cv_name" value={{ ad.title }}>
+                <small class="form-text text-muted">С таким названием ваше резюме будут видеть другие пользователи</small>
+            </div>
+
+            <div class="form-group">
+                <label>Опишите ваши навыки и опыт работы</label>
+                <textarea class="form-control" name="text">{{ ad.title }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Город поиска работы</label>
+                <input class="form-control" name="location" value={{ ad.title }}>
+            </div>
+
+            <div class="form-group">
+                <label>Желаемая зарплата</label>
+                <input class="form-control" name="price" value={{ ad.title }}>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        </form>
+    </div>
+{% endblock %}

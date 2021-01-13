@@ -1,0 +1,28 @@
+.dark_mode_bg {
+	background-image: url("https://yobte.ru/uploads/posts/2019-11/svetljachki-v-lesu-63-foto-15.jpg");
+}
+.none_decor_link:active, /* активная/посещенная ссылка */
+.none_decor_link:hover,  /* при наведении */
+.none_decor_link {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+	margin-top: 6px;
+	margin-bottom: 10px;
+}
+
+.bg-flex {
+	background-color: rgb(250,235,215,0.95);
+}
+
+.ticket {
+	width: 100%;
+	border: 1px solid;
+	padding: 8px;
+}
+
+.br {
+    white-space: pre-line;
+}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Поиск сотрудников{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="search_add_vacancy_cv row justify-content-between">
+		<form class="form-inline my-2 my-lg-0" method="GET">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+			name="search" value="{{ request.args.get("search", "") }}">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+		<a type="button" class="btn btn-warning" href="/create_cv">
+			Создать резюме
+		</a>
+	</div>
+	<div class="sorting row mb-2 align-items-center ">
+		Сортировать по:
+		<a class="sortFilter none_decor_link" href="/employees_search">По умолчанию</a>
+		<a class="sortFilter none_decor_link" href="?sortFilter=byname">По названию</a>
+		<a class="sortFilter none_decor_link" href="?sortFilter=bypriceasc">Дешевле</a>
+		<a class="sortFilter none_decor_link" href="?sortFilter=bypricedesc">Дороже</a>
+		<a class="sortFilter none_decor_link" href="?sortFilter=bydate">По дате</a>
+	</div>
+
+	{% for cv in cvs %}
+	<div class="row">
+		<div class="cv-item col">
+			<div class="justify-content-between form-inline">
+				<a class="none_decor_link name_cv link" href="#">
+					{{ cv.title }}
+				</a>
+				<div class="price_cv">
+					{{ cv.price }} руб.
+				</div>
+			</div>
+			<div class="description_cv text-break">
+				Описание: {{ cv.description }}
+			</div>
+			<div class="town_cv text-secondary">
+				город {{ cv.location }}
+			</div>
+			<div class="button_date_cv justify-content-between form-inline">
+
+				<div class="dropup">
+					<button type="button" class="btn btn-warning " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Показать контакты
+					</button>
+					<div class="dropdown-menu">
+						<div class="vacancy_drop_name">
+							Пожилой Боров
+						</div>
+						<div class="vacancy_drop_phone">
+							8-800-555-35-35
+						</div>
+						<div class="vacancy_drop_mail">
+							pajasыs@mail.sru
+						</div>
+					</div>
+				</div>
+
+				<div class="date_cv text-secondary">
+					{{ cv.date.date() }}
+				</div>
+			</div>
+		</div>
+		<div class="w-100"></div>
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}
